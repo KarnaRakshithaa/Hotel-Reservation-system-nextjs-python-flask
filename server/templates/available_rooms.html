@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LIst Of Rooms</title>
+</head>
+<body>
+    <h1>Available Rooms:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Room Number</th>
+                <th>Cost</th>
+                <th>Room Type</th>
+                <th>Bed size</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for room in available_rooms_data %}
+                <tr>
+                    <td>{{ room[0] }}</td>
+                    <td>{{ room[1] }}</td>
+                    <td>{{ room[2] }}</td>
+                    <td>{{ room[3] }}</td>
+                    <!-- Add more columns as needed -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h1>Enter Room Details</h1>
+    <form action="/book_room" method="GET">
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required><br><br>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required><br><br>
+
+        <label for="Cid">Customer id:</label>
+        <input type="text" id="Cid" name="Cid" required><br><br>
+
+        <label for="room_no">Room Number:</label>
+        <input type="text" id="room_no" name="room_no" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
